@@ -10,7 +10,8 @@ internal class Program
         { 2015, new[] { 
                 new DayToSolve(new _2015.Day1(), Resources._2015Day01),
                 new DayToSolve(new _2015.Day2(), Resources._2015Day02),
-                new DayToSolve(new _2015.Day3(), Resources._2015Day03)
+                new DayToSolve(new _2015.Day3(), Resources._2015Day03),
+                new DayToSolve(new _2015.Day4(), Resources._2015Day04)
             } 
         }
     };
@@ -20,18 +21,18 @@ internal class Program
         foreach (var yearPuzzles in _solvedDays)
         {
 
-            Console.WriteLine("+-------------------------------------------+");
-            Console.WriteLine($"|                 Year: {yearPuzzles.Key}                |");
-            Console.WriteLine("+-------------------------------------------+");
-            Console.WriteLine("| Day | Part | Duration   | Answer          |");
-            Console.WriteLine("+-------------------------------------------+");
+            Console.WriteLine("+--------------------------------------------+");
+            Console.WriteLine($"|                 Year: {yearPuzzles.Key}                 |");
+            Console.WriteLine("+--------------------------------------------+");
+            Console.WriteLine("| Day | Part | Duration    | Answer          |");
+            Console.WriteLine("+--------------------------------------------+");
 
             foreach(var day in yearPuzzles.Value)
             {
                 SolveDay(day);
             }
 
-            Console.WriteLine("+-------------------------------------------+");
+            Console.WriteLine("+--------------------------------------------+");
         }
     }
 
@@ -50,7 +51,7 @@ internal class Program
         var answer = partFunction(parsedInput);
         sw.Stop();
         var duration = sw.ElapsedTicks / 10000d;
-        Console.WriteLine(string.Format("| {0,3} | {1,4} | {2,7} ms | {3,15} |", dayNumber, partNumber, duration, answer));
+        Console.WriteLine(string.Format("| {0,3} | {1,4} | {2,8} ms | {3,15} |", dayNumber, partNumber, duration, answer));
     }
 }
 
