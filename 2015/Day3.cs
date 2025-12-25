@@ -22,7 +22,7 @@ public sealed class Day3 : DayBase<string>
         var santa = new GiftBringer();
         var roboSanta = new GiftBringer();
 
-        // Two small loops without module is slightly faster than 1 big loop _with_ modulo
+        // Two small loops without modulo is slightly faster than 1 big loop _with_ modulo
         DeliverGifts(santa, input, 0, 2);
         DeliverGifts(roboSanta, input, 1, 2);
 
@@ -56,48 +56,48 @@ public sealed class Day3 : DayBase<string>
 
     private sealed class GiftBringer
     {
-        private Coordinate _coordinate;
+        private Coordinate _currentCoordinate;
         private readonly Dictionary<Coordinate, int> _visitedCoordinates = [];
 
         public GiftBringer()
         {
-            _coordinate = new Coordinate { X = 0, Y = 0 };
-            _visitedCoordinates.Add(_coordinate, 1);
+            _currentCoordinate = new Coordinate { X = 0, Y = 0 };
+            _visitedCoordinates.Add(_currentCoordinate, 1);
         }
 
         public void MoveEast()
         {
-            _coordinate.X += 1;
+            _currentCoordinate.X += 1;
             UpPresentCount();
         }
 
         public void MoveWest()
         {
-            _coordinate.X -= 1;
+            _currentCoordinate.X -= 1;
             UpPresentCount();
         }
 
         public void MoveSouth()
         {
-            _coordinate.Y -= 1;
+            _currentCoordinate.Y -= 1;
             UpPresentCount();
         }
 
         public void MoveNorth()
         {
-            _coordinate.Y += 1;
+            _currentCoordinate.Y += 1;
             UpPresentCount();
         }
 
         private void UpPresentCount()
         {
-            if (_visitedCoordinates.ContainsKey(_coordinate))
+            if (_visitedCoordinates.ContainsKey(_currentCoordinate))
             {
-                _visitedCoordinates[_coordinate]++;
+                _visitedCoordinates[_currentCoordinate]++;
             }
             else
             {
-                _visitedCoordinates.Add(_coordinate, 1);
+                _visitedCoordinates.Add(_currentCoordinate, 1);
             }
         }
 
