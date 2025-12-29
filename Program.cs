@@ -11,7 +11,8 @@ internal class Program
                 new DayToSolve(new _2015.Day1(), Resources._2015Day01),
                 new DayToSolve(new _2015.Day2(), Resources._2015Day02),
                 new DayToSolve(new _2015.Day3(), Resources._2015Day03),
-                new DayToSolve(new _2015.Day4(), Resources._2015Day04)
+                new DayToSolve(new _2015.Day4(), Resources._2015Day04),
+                new DayToSolve(new _2015.Day5(), Resources._2015Day05)
             } 
         }
     };

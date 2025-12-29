@@ -22,7 +22,7 @@ public sealed class Day4 : DayBase<string>
         return FindHash(input, hash => hash[0] == 0 && hash[1] == 0 && hash[2] == 0);
     }
 
-    private int FindHash(string input, Func<byte[], bool> hashChecker)
+    private static int FindHash(string input, Func<byte[], bool> hashChecker)
     {
         int counter = 1;
 
